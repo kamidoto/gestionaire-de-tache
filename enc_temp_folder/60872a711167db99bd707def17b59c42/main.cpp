@@ -19,5 +19,7 @@ int main()
 
 	std::vector<std::string> vector = tache::load(nomfichier);
 
+	std::cout << vector[0];
+
 	tache::add(tache, nomfichier, vector);
 }
