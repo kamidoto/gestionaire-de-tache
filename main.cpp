@@ -1,5 +1,7 @@
 #include "tache.h"
 
+bool finish = false;
+
 int main()
 {
 	std::string tache;
@@ -8,23 +10,42 @@ int main()
 
 	std::vector<std::string> vector = tache::load(nomfichier);
 
-	do
+	std::string actionChoisie;
+
+	while (finish == false)
 	{
-		std::getline(std::cin, tache);
+		std::cin >> actionChoisie;
 
-		if (tache.size() > 256)
-			printf("out of range char main.cpp lg 13");
+		if (actionChoisie == "?" || actionChoisie == "help" || actionChoisie == "h")
+			std::cout << "help : ? || help || h\nadd : a || add\ndisplay : d || display\nexit : e || exit ";
 
-	} while (tache.size() > 256);
+		else if (actionChoisie == "a" || actionChoisie == "add")
+		{
+			do
+			{
+				std::getline(std::cin, tache);
 
-	std::cout << tache << std::endl;
+				if (tache.size() > 256)
+					printf("out of range char main.cpp lg 13");
 
-	tache::add(tache, nomfichier, vector);
+			} while (tache.size() > 256);
 
-	for (int i = 0; vector.size() > i;)
-	{
-		std::cout << vector[i] << std::endl;
+			tache::add(tache, nomfichier, vector);
+		}
 
-		i++;
+		else if (actionChoisie == "d" || actionChoisie == "display")
+		{
+			for (int i = 0; vector.size() > i;)
+			{
+				std::cout << vector[i] << std::endl;
+
+				i++;
+			}
+		}
+
+		else if (actionChoisie == "e" || actionChoisie == "exit")
+		{
+			finish = true;
+		}
 	}
 }
