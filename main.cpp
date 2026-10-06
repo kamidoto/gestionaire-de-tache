@@ -6,6 +6,8 @@ int main()
 
 	const std::string nomfichier = "tache.txt";
 
+	std::vector<std::string> vector = tache::load(nomfichier);
+
 	do
 	{
 		std::getline(std::cin, tache);
@@ -17,7 +19,12 @@ int main()
 
 	std::cout << tache << std::endl;
 
-	std::vector<std::string> vector = tache::load(nomfichier);
-
 	tache::add(tache, nomfichier, vector);
+
+	for (int i = 0; vector.size() > i;)
+	{
+		std::cout << vector[i] << std::endl;
+
+		i++;
+	}
 }

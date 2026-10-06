@@ -5,13 +5,13 @@ std::vector<std::string> tache::load(const std::string& nomFichier)
 	
 	std::fstream* fichier = new std::fstream;
 
-	fichier->open(nomFichier, std::fstream::app | std::fstream::out);
+	fichier->open(nomFichier, std::fstream::app | std::fstream::in);
 
 	std::string stokage;
 
 	if (fichier->is_open())
 	{
-		while ( std::getline(*fichier, stokage) )
+		while (std::getline(*fichier, stokage))
 		{
 			Load->push_back(stokage);
 		}
