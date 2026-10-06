@@ -4,6 +4,3 @@ caca
 caca
 pipi proute
 halla hekbar
-
-
-
